@@ -15,7 +15,7 @@ def next_j(j):
         
     if curses.has_colors():
         z = randrange(0, 3)
-        color = curses.color.pair(z)
+        color = curses.color_pair(z)
         if z:
             color = color | curses.A_BOLD
         stdscr.attrset(color)
