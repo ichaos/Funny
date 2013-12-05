@@ -20,6 +20,16 @@ int main() {
 	char src[100] = "this is source! Don't copy this part.";
 	char dst[100] = {};
 
+	unsigned long long ip = 0;
+
+	//get rip
+	asm("leaq	0x0(%%rip), %%rax" 
+		:"=a"(ip)::);
+	//next instruction
+	ip = ip + 42 - 42;
+	
+	printf("ip address: %p\n", ip);
+
 	duffs_device(src, 15, dst);
 
 	//verify
